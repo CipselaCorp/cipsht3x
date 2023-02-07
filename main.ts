@@ -19,7 +19,7 @@ let SHT31_MEAS_HIGHREP = 0x2400
 
 
 
-//% color=#4c6ef5 weight=25 icon="\uf043" block="SHT3x Sensor"
+//% color=#4c6ef5 weight=25 icon="\uf06d" block="CIPSHT3x"
 namespace CIPSHT3X {
 
     //pins.i2cWriteBuffer(SHT31_DEFAULT_ADDR, i2cBuffer, false);
