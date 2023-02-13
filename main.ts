@@ -1,4 +1,4 @@
-function setReg(command: number) {
+function set_Reg_t_h(command: number) {
     let buf = pins.createBuffer(2);
     // basic.pause(10)
     // basic.pause(10)
@@ -8,7 +8,7 @@ function setReg(command: number) {
 }
 // < Status Register Heater Bit
 function Reset() {
-    setReg(SHT31_SOFTRESET)
+    set_Reg_t_h(SHT31_SOFTRESET)
     basic.pause(10)
 }
 let SHT31_SOFTRESET = 0x30A2
@@ -32,7 +32,7 @@ namespace CIPSHT3X {
     //% block="Leer Temperatura"
     export function leer_temperatura(): number {
         Reset;
-        setReg(SHT31_MEAS_HIGHREP);
+        set_Reg_t_h(SHT31_MEAS_HIGHREP);
         //let buf = pins.createBuffer(2);
         //pins.i2cWriteNumber(SHT31_DEFAULT_ADDR, SHT31_MEAS_HIGHREP, NumberFormat.UInt8BE, false);
 
@@ -60,7 +60,7 @@ namespace CIPSHT3X {
     //% block="Leer Humedad"
     export function leer_humedad(): number {
         Reset;
-        setReg(SHT31_MEAS_HIGHREP);
+        set_Reg_t_h(SHT31_MEAS_HIGHREP);
         //let buf = pins.createBuffer(2);
         //pins.i2cWriteNumber(SHT31_DEFAULT_ADDR, SHT31_MEAS_HIGHREP, NumberFormat.UInt8BE, false);
 
