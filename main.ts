@@ -17,7 +17,7 @@ let SHT31_DEFAULT_ADDR = 0x44
 // < Measurement High Repeatability with Clock Stretch Enabled
 let SHT31_MEAS_HIGHREP = 0x2400
 
-function trunc(x : number, posiciones : number):number {
+function trunc_sht(x : number, posiciones : number):number {
     let s = x.toString()
     let l = s.length
     let decimalLength = s.indexOf('.') + 1
@@ -50,7 +50,7 @@ namespace CIPSHT3X {
         result |= i2cBuffer[1];
         result = ((4375 * result) >> 14) - 4500;
         let temp = result / 100;
-        return temp
+        return trunc_sht(temp, 2)
     }
     //serial.writeBuffer(i2cBuffer);
     //serial.readBuffer(result);
@@ -79,7 +79,7 @@ namespace CIPSHT3X {
         result_2 = (625 * result_2) >> 12;
         let hum = result_2 / 100;
 
-        return trunc(hum, 2)
+        return trunc_sht(hum, 2)
     }
 
     // basic.pause(1000)
