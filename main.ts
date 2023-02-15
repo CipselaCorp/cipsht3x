@@ -17,6 +17,13 @@ let SHT31_DEFAULT_ADDR = 0x44
 // < Measurement High Repeatability with Clock Stretch Enabled
 let SHT31_MEAS_HIGHREP = 0x2400
 
+function trunc(x : number, posiciones : number):number {
+    let s = x.toString()
+    let l = s.length
+    let decimalLength = s.indexOf('.') + 1
+    let numStr = s.substr(0, decimalLength + posiciones)
+    return parseFloat(numStr)
+}
 
 
 //% color=#E03131 weight=25 icon="\uf06d" block="CIPSHT3x"
@@ -71,7 +78,8 @@ namespace CIPSHT3X {
         result_2 |= i2cBuffer[4];
         result_2 = (625 * result_2) >> 12;
         let hum = result_2 / 100;
-        return hum
+
+        return trunc(hum, 2)
     }
 
     // basic.pause(1000)
